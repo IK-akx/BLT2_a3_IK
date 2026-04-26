@@ -1,0 +1,48 @@
+type Deposit @entity(immutable: true) {
+  id: ID!
+  caller: Bytes!
+  owner: Bytes!
+  assets: BigInt!
+  shares: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Withdrawal @entity(immutable: true) {
+  id: ID!
+  caller: Bytes!
+  receiver: Bytes!
+  owner: Bytes!
+  assets: BigInt!
+  shares: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Harvest @entity(immutable: true) {
+  id: ID!
+  amountAdded: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type User @entity(immutable: true) {
+  id: ID!
+  totalDeposited: BigInt!
+  totalWithdrawn: BigInt!
+  depositCount: BigInt!
+  withdrawalCount: BigInt!
+}
+
+type VaultStat @entity(immutable: true) {
+  id: ID!
+  totalDeposited: BigInt!
+  totalWithdrawn: BigInt!
+  totalHarvested: BigInt!
+  depositCount: BigInt!
+  withdrawalCount: BigInt!
+  harvestCount: BigInt!
+}

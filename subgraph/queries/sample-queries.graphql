@@ -1,0 +1,40 @@
+# 1. Get all deposits
+{
+  deposits(first: 10, orderBy: timestamp, orderDirection: desc) {
+    id
+    caller
+    owner
+    assets
+    shares
+    transactionHash
+    timestamp
+  }
+}
+
+# 2. Get deposits by user
+{
+  deposits(
+    where: { owner: "0xeb017f7ba12051181c2bf633205b0db400607d1d" }
+    orderBy: timestamp
+    orderDirection: desc
+  ) {
+    id
+    assets
+    shares
+    timestamp
+    transactionHash
+  }
+}
+
+# 3. Get vault totals over time
+{
+  vaultStats {
+    id
+    totalDeposited
+    totalWithdrawn
+    totalHarvested
+    depositCount
+    withdrawalCount
+    harvestCount
+  }
+}
